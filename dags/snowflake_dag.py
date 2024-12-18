@@ -43,12 +43,12 @@ def consulta_snowflake():
     # Obtener detalles de la conexión de origen
     conn_source = BaseHook.get_connection("snowflake_source")
     database_source = conn_source.extra_dejson.get("database")
-    schema_source = conn_source.extra_dejson.get("schema")
+    schema_source = "SOURCE"
  
     # Obtener detalles de la conexión de destino
     conn_target = BaseHook.get_connection("snowflake_target")
     database_target = conn_target.extra_dejson.get("database")
-    schema_target = conn_target.extra_dejson.get("schema")
+    schema_target = "TARGET"
  
     # Inicializa los hooks de Snowflake para fuente y destino
     snowflake_source = SnowflakeHook(snowflake_conn_id="snowflake_source")
